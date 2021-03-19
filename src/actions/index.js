@@ -28,5 +28,8 @@ export const setError = (err) => {
 }
 
 export const addSmurf = (smurf) => {
-  debugger;
+  return {
+    type: ADD_SMURF,
+    payload: smurf,
+  }
 }
