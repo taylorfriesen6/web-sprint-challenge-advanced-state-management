@@ -1,8 +1,27 @@
+import {
+  FETCH_SMURFS_START,
+  FETCH_SMURFS_SUCCESS,
+  FETCH_SMURFS_FAIL,
+  ADD_SMURF,
+  SET_ERROR,
+} from '../actions'
 
-export const initialState = {
+const testSmurf = {
+  id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+  name:'Poppa Smurf',
+  position:'Village Leader',
+  nickname: 'Pops',
+  description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
 }
 
-const reducer = ()=>{
+export const initialState = {
+  smurfs: [testSmurf, testSmurf],
+  isLoading: false,
+  err: ''
+}
+
+const reducer = (state=initialState, action)=>{
+  return state;
 }
 
 export default reducer;
