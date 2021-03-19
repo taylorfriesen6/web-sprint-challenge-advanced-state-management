@@ -5,12 +5,14 @@ import {setError, addSmurf} from '../actions';
 
 const AddForm = (props) => {
     const {errorMessage} = props;
-    const [state, setState] = useState({
+
+    const initialState = {
         name:"",
         position:"",
         nickname:"",
         description:""
-    });
+    }
+    const [state, setState] = useState(initialState);
 
     const handleChange = e => {
         setState({
@@ -29,7 +31,8 @@ const AddForm = (props) => {
                 position: state.position,
                 nickname: state.nickname,
                 description: state.description,
-            })
+            });
+            setState(initialState);
         }
     }
 
