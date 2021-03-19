@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
 export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS';
-export const FETCH_SMURFS_FAILURE = 'FETCH_SMURFS_FAIL';
+export const FETCH_SMURFS_FAILURE = 'FETCH_SMURFS_FAILURE';
 export const ADD_SMURF = 'ADD_SMURF';
 export const SET_ERROR = 'SET_ERROR';
 
@@ -12,11 +12,21 @@ export const SET_ERROR = 'SET_ERROR';
 //3. Add a standard action that allows us to set the value of the error message slice of state.
 
 export const fetchSmurfs = () => dispatch =>{
-  debugger;
   dispatch({type: FETCH_SMURFS_START});
   axios.get('http://localhost:3333/smurfs').then(res => {
-    dispatch({type: FETCH_SMURFS_SUCCESS, payload: res});
+    dispatch({type: FETCH_SMURFS_SUCCESS, payload: res.data});
   }).catch(err => {
     dispatch({type: FETCH_SMURFS_FAILURE});
   })
+}
+
+export const setError = (err) => {
+  return {
+    type: SET_ERROR,
+    payload: err,
+  }
+}
+
+export const addSmurf = (smurf) => {
+  debugger;
 }
